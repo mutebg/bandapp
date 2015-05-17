@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * Album Carousel
+ */
 function albums() {
 	return {
 		restrict: 'E',
@@ -15,6 +18,7 @@ function albums() {
 			scope.perPage =  Math.floor( containerWidth / elementWidth );
 			scope.pages = 0;
 			scope.currentPage = 1;
+
 
 			scope.move = function(direction) {
 				if ( direction === 'next') {
@@ -52,6 +56,9 @@ function albums() {
 }
 
 
+/**
+ * Detect retina display and change image src
+ */
 function retinaSrc($window) {
 
 	var isRetina = function() {
@@ -78,7 +85,7 @@ function retinaSrc($window) {
 			retinaSrc: '='
 		},
 		link: function(scope, element, attrs) {
-			var watch = scope.$watch('retinaSrc', function(newValue, oldValue) {
+			var watchSrc = scope.$watch('retinaSrc', function(newValue, oldValue) {
 				if ( newValue ) {
 					var src;
 					if ( typeof newValue === 'string' && !isRetina ) {
@@ -91,7 +98,7 @@ function retinaSrc($window) {
 						src = newValue[1];
 					}
 					element.attr('src', src );
-					watch();
+					watchSrc();
 				}
 			});
 		}
@@ -99,6 +106,9 @@ function retinaSrc($window) {
 }
 
 
+/**
+ * Popup with album information
+ */
 function popupAlbum($rootScope, $timeout, LastFMService) {
 	return {
 		restrict: 'E',

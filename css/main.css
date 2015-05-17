@@ -367,6 +367,9 @@ a {
 
 .page--about {
   padding-bottom: 15%; }
+  @media ( max-width: 600px ) {
+    .page--about {
+      padding-bottom: 45%; } }
 
 .page--albums, .page--events {
   background: #F9F9F9; }
@@ -378,6 +381,10 @@ a {
   background-position: 50% 0%;
   background-repeat: no-repeat;
   background-attachment: fixed; }
+  @media ( max-width: 600px ) {
+    .page--blog, .page--contact {
+      padding-top: 45%;
+      padding-bottom: 45%; } }
 
 .page--blog {
   background-image: url(../images/blog.jpg); }

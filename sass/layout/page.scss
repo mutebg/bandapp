@@ -8,6 +8,9 @@
 
 .page--about {
 	padding-bottom: 15%;
+	@media #{$mobile-break} {
+		padding-bottom: 45%;
+	}
 }
 
 .page--albums,
@@ -23,6 +26,11 @@
 	background-position: 50% 0%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+
+	@media #{$mobile-break} {
+		padding-top: 45%;
+		padding-bottom: 45%;
+	}
 }
 
 .page--blog {

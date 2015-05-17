@@ -2,7 +2,9 @@
 	<button ng-click="move('prev')" class="btn btn--prev" ng-show=" currentPage > 1">
 		<i class="icon-angle-left"></i>
 	</button>
-	<div class="albums">
+	<div class="albums" 
+		ng-swipe-right="currentPage > 1 && move('prev')" 
+		ng-swipe-left="currentPage < pages && move('next')" >
 		<div class="album" ng-repeat="album in visible">
 			<img retina-src="album.image" class="album__image" ng-click="showAlbum($event, album)" >
 			<p class="album__name">{{ :: album.name }}</p>
