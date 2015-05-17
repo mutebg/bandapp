@@ -1,3 +1,4 @@
 'use strict';
 
-angular.module('bandApp', ['ngMessages']);
+angular.module('bandApp', ['ngMessages', 'duScroll'])
+	.value('duScrollDuration', 500);

@@ -235,7 +235,8 @@ a {
 
 .nav__link {
   display: inline-block;
-  padding: 1em 1.5em;
+  padding: 0 1.5em;
+  line-height: 64px;
   font-size: 19.2px;
   color: #fff; }
   .nav__link:hover {
@@ -250,7 +251,7 @@ a {
 @media ( min-width: 900px ) {
   .header--colored .nav__link {
     color: #fff; } }
-.header--colored .nav__link--active {
+.header--colored .active, .header--colored .nav__link--active {
   background: #ff8623; }
 
 .header {
@@ -390,6 +391,11 @@ a {
     .page--contact {
       background-image: url(../images/contact-2x.jpg); } }
 
+@media (min-width: 1200) {
+  .content {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto; } }
 @media ( min-width: 900px ) {
   .content {
     margin: 0 72px 0 72px;
@@ -529,7 +535,11 @@ footer {
   @media ( min-width: 900px ) {
     .member {
       min-width: 25%;
-      max-width: 25%; } }
+      max-width: 25%;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1; } }
   @media ( max-width: 900px ) {
     .member {
       min-width: 50%;

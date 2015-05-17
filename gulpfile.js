@@ -7,6 +7,7 @@ var concat = require('gulp-concat');
 var scriptsList = [
 	'bower_components/angular/angular.min.js',
 	'bower_components/angular-messages/angular-messages.min.js',
+	'bower_components/angular-scroll/angular-scroll.min.js',
 	'js-dev/*.js'
 ];
 

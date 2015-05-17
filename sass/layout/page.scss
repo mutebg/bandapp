@@ -40,6 +40,12 @@
 }
 
 .content {
+	@media (min-width: 1200) {
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	@media #{$desktop-break} {
 		margin: 0 72px 0 72px;
 		padding: 60px;
