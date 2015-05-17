@@ -1,0 +1,14 @@
+<div class="album-carousel">
+	<button ng-click="move('prev')" class="btn btn--prev" ng-show=" currentPage > 1">
+		<i class="icon-angle-left"></i>
+	</button>
+	<div class="albums">
+		<div class="album" ng-repeat="album in visible">
+			<img retina-src="album.image" class="album__image" ng-click="showAlbum($event, album)" >
+			<p class="album__name">{{ :: album.name }}</p>
+		</div>
+	</div>
+	<button ng-click="move('next')"class="btn btn--next" ng-show=" currentPage < pages ">
+		<i class="icon-angle-right"></i>
+	</button>
+</div>

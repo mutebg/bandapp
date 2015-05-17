@@ -1,0 +1,97 @@
+.btn {
+	display: inline-block;
+	padding: 5px 10px;
+	border: 0;
+	border-radius: 3px;
+	background-color: $active-color;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+	color: #fff;
+	text-align: center;
+	transition: all .3s;
+	cursor: pointer;
+	outline: 0;
+
+	&:hover {
+		color: #fff;
+		background-color: darken($active-color, 10%);
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+		transform: translateY(-1px);
+	}
+}
+
+.btn--large {
+ 	padding: 15px 40px;
+	font-size: 24px;
+}
+
+.btn--prev,
+.btn--next {
+	position: absolute;
+	top: calc(50% - 21px);
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	border-radius: 50%;
+	font-size: 24px;
+  	line-height: 46px;
+  	text-align: center;
+}
+
+.btn--prev {
+	left: -42px;
+	@media #{$mobile-break} {
+		left: -20px;
+	}
+}
+
+.btn--next {
+	right: -42px;
+	@media #{$mobile-break} {
+		right: -20px;
+	}
+}
+
+.btn--close {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	border-radius: 50%;
+	line-height: 42px;
+	font-size: 30px;
+}
+
+
+/*=====================================================
+	Mobile nav button | Hamburger
+=====================================================*/
+
+.nav-btn {
+	display: none;
+
+	@media #{$tablet-break} {
+		width: 42px;
+		height: 42px;
+		z-index: 20;
+		background: transparent;
+		display: block;
+		position: fixed;
+		top: 10px;
+		left: 10px;
+		border: 0;
+		cursor: pointer;
+
+		span {
+			height: 3px;
+			display: block;
+			margin: 5px 0;
+			background: #fff;
+		}
+	}
+}
+
+.js-show + .nav-btn span {
+	background: $active-color;
+}

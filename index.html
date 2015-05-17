@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html ng-app="bandApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+<body ng-controller="MainCtrl as main">
+
+	<header class="header" ng-class="{'header--colored': main.activeHeader }">
+
+		<ul class="nav" role="nav" ng-class="{ 'js-show': main.showNav }">
+			<li class="nav__item" ng-repeat="nav in main.nav">
+				<a 	href="#{{:: nav.link}}"
+					class="nav__link"
+					title="{{:: nav.name }}"
+					ng-click="main.showNav = false"
+					>{{:: nav.name }}</a>
+			</li>
+		</ul>
+
+		<button
+			class="nav-btn"
+			ng-click="main.showNav = !main.showNav "
+			aria-label="navigation"
+			role="button"
+			>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+		</button>
+
+	</header>
+
+
+	<!-- HOME PAGE -->
+	<section class="page page--home" id="home">
+		<!--
+		<h1>WE ARE FRANZ FERDINAND</h1>
+		-->
+	</section>
+	<!-- END HOME PAGE -->
+
+
+	<!-- ABOUT PAGE -->
+	<section class="page page--about" id="about" ng-controller="AboutCtrl as about">
+		<div class="content content--bg">
+			<h1>We are Franz Ferdinand</h1>
+			<p>Franz Ferdinand is a Scottish rock band that formed in Glasgow, Scotland, United Kingdom, in 2002 and played an important part in the post-punk revival of the 2000s. The band is composed of Alex Kapranos (lead vocals and guitar), Bob Hardy (bass guitar), Nick McCarthy (rhythm guitar, keyboards and backing vocals) and Paul Thomson (drums, percussion and backing vocals). </p>
+
+			<div class="members-list">
+				<div class="member" ng-repeat="member in about.members">
+					<h4 class="member__name">{{:: member.name }}</h4>
+					<p class="member__position">{{:: member.position }}</p>
+					<a href="{{:: member.link}}" target="_blank">
+						<img
+							retina-src="'images/about_' + member.img + '.jpg' "
+							alt="{{:: member.name }}"
+							title="{{:: member.name }}"
+							class="member__avatar">
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- END ABOUT PAGE -->
+
+
+	<!-- ALBUMS PAGE -->
+	<section class="page page--albums" id="albums" ng-controller="AlbumsCtrl as albums">
+		<div class="content">
+			<h1>Our albums</h1>
+			<albums albums="albums.list"></albums>
+		</div>
+		<popup-album></popup-album>
+	</section>
+	<!-- END ALBUMS PAGE -->
+
+
+	<!-- BLOG PAGE -->
+	<section class="page page--blog" id="blog">
+		<div class="content content--bg">
+			<h1>Last from our blog</h1>
+			<article class="blog-post">
+
+				<img retina-src="'images/blog-post.jpg'" class="blog-post__image" alt="" title=""/>
+
+				<h3 class="blog-post__title">Franz Ferdinand and Sparks working on joint album</h3>
+				<p>Sparks keyboardist Ron Mael told NME that the two bands have been working together since they met in San Francisco in April last year (2013). They hope to finish recording by the time Sparks begin a tour this summer.</p>
+
+				<p>"You can really hear a mashing together of both bands," said Mael. "If there was a train crash between Franz Ferdinand and Sparks, this is what the wreckage would sound like."</p>
+
+				<p class="blog-post__date">February 7, 2014 13:08</p>
+
+				<div class="blog-post__bar">
+					<a href="#"><span class="icon-bookmark"></span> Read full article</a> 
+					<a href="#"><span class="icon-comments"></span> Comment</a>
+				</div>
+			</article>
+		</div>
+	</section>
+	<!-- END BLOG PAGE -->
+
+
+	<!-- EVENTS PAGE -->
+	<section class="page page--events" id="events" ng-controller="EventsCtrl as event">
+		<div class="content">
+			<h1>Live shows</h1>
+			<table class="events">
+				<tr ng-repeat="row in event.list" class="events__row">
+					<td class="events__date">{{:: row.date | date:'dd MMM' }}</td>
+					<td class="events__venue">{{:: row.venue.name }}</td>
+					<td class="events__location">{{:: row.venue.location.city }} {{:: row.venue.location.country }}</td>
+					<td class="events__btn"><a href="#" class="btn">Get tickets</a></td>
+				</tr>
+			</table>
+		</div>
+	</section>
+	<!-- END EVENTS PAGE -->
+
+
+	<!-- CONTACT PAGE -->
+	<section class="page page--contact" id="contact" ng-controller="ContactCtrl as contact">
+		<div class="content content--bg">
+			<h1>Send message</h1>
+
+			<div class="alert alert--success" role="alert" ng-show="contact.showMessage">
+				your message was sent successfully
+			</div>
+
+			<form
+				name="contactForm"
+				ng-submit="contactForm.$valid && contact.send(form)"
+				ng-class="{ 'loading': contact.isLoading }"
+				novalidate
+				>
+				<div class="row">
+					<div class="input-group item half">
+						<input type="text" name="name" id="name" ng-model="form.name" required/>
+						<label for="name">Your name</label>
+						<div
+							class="alert-label"
+							ng-messages="contactForm.name.$error"
+							role="alert"
+							ng-if="contactForm.$submitted || contactForm.name.$touched">
+							<div ng-message="required">You did not enter a field</div>
+						</div>
+					</div>
+
+					<div class="input-group item half">
+						<input type="email" name="email" id="email" ng-model="form.email" required/>
+						<label for="email">Your e-mail</label>
+						<div
+							class="alert-label"
+							ng-messages="contactForm.email.$error"
+							role="alert"
+							ng-if="contactForm.$submitted || contactForm.email.$touched">
+							<div ng-message="required">You did not enter a field</div>
+							<div ng-message="email">You did not enter valid email</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-group item full">
+						<textarea id="message" ng-model="form.message"></textarea>
+						<label for="messsage">Your message</label>
+					</div>
+				</div>
+				<div class="row" style="text-align: center;">
+					<button type="submit" class="btn btn--large">Send</button>
+				</div>
+			</form>
+		</div>
+	</section>
+	<!-- END CONTACT PAGE -->
+	
+	<footer>
+		<p>No rights. No lefts. This is dummy page.</p>
+		<a href="#" class="icon-facebook"></a>
+		<a href="#" class="icon-twitter"></a>
+		<a href="#" class="icon-facebook"></a>
+	</footer>
+	
+
+	<script src="js/app.js"></script>
+</body>
+</html>

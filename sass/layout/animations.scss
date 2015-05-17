@@ -1,0 +1,49 @@
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes show-popup {
+    to {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes close-popup {
+    from {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes loading {
+    0 {
+        border-color: $active-color;
+    }
+    75% {
+        border-color: lighter($active-color, 20%);
+        transform: scale(1.3);
+    }
+    100% { 
+        border-color: $active-color;
+        transform: scale(1); 
+    }
+}

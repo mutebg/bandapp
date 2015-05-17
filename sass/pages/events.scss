@@ -1,0 +1,36 @@
+.events {
+	width: 100%;
+
+	@media #{$tablet-break} {
+		overflow-x: auto;
+		display: block;
+	}
+}
+
+.events__row {
+
+	td {
+		padding: 8px 10px;
+		white-space: nowrap;
+	}
+
+	&:nth-of-type(even) {
+		background: #fff;
+	}
+}
+
+.events__date {
+	width: 80px;
+}
+
+.events__venue {
+
+}
+
+.events__location {
+
+}
+
+.events__btn {
+	width: 120px;
+}

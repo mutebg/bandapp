@@ -1,0 +1,21 @@
+html,
+body {
+	height: 100%;
+	min-height: 100%;
+}
+
+body {
+	height: 100%;
+	padding-top: $layot-header-height;
+	overflow: auto;
+	background-image: url(../images/header.jpg);
+	background-size: cover;
+	background-position: 50% 0%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	will-change: background-position;
+
+	@media #{$retina-break} {
+		background-image: url(../images/header-2x.jpg);
+	}
+}

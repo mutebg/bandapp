@@ -1,0 +1,29 @@
+<div class="album-popup" 
+	ng-class="{'album-popup--start': action == 'open', 'album-popup--close': action == 'close'}" 
+	ng-show="visible" 
+	ng-style="css">
+
+	<div ng-show="album" class="album-popup__container">
+		<button class="btn btn--close" ng-click="close()">&times;</button>
+		<h1>{{ album.name }}</h1>
+
+		<div class="row">
+			<div class="item one-third">
+				<img retina-src="album.image" class="album-popup__image"/>
+			</div>
+			<div class="item two-thirds">
+				<table class="tracklist">
+					<tr ng-repeat="track in album.tracks.track">
+						<td width="50">
+							<span class="tracklist__num">{{ $index + 1 }}</span>
+							<span class="tracklist__play icon-play"></span>
+						</td>
+						<td>{{ track.name}}</td>
+						<td width="50">{{ track.duration | duration }}</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>

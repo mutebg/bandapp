@@ -1,0 +1,117 @@
+.album-carousel {
+	position: relative;
+}
+
+
+/*=====================================================
+	Album item
+=====================================================*/
+
+.albums {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.album {
+	width: 150px;
+	height: 200px;
+	margin: 10px;
+	cursor: pointer;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+	animation: fade-in 1s;
+	animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    transition: all .3s;
+
+	&:hover {
+		border-color: $bg-color;
+    	transform: translateY(-1px);
+		box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.47);
+	}
+}
+
+.album__image {
+	width: 150px;
+}
+
+.album__name {
+	padding: 10px;
+	margin: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+/*=====================================================
+	Album popup
+=====================================================*/
+
+.album-popup {
+	position: fixed;
+    background: rgba(255, 255, 255, 0.97);
+    width: 150px;
+    height: 200px;
+}
+
+.album-popup--start {
+	animation: show-popup .5s;
+	animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    z-index: 30;
+}
+
+.album-popup--close {
+	animation: close-popup .5s;
+	animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    z-index: 30;
+}
+
+.album-popup__container {
+	padding: 2em;
+	max-height: 100%;
+	overflow: auto;
+}
+
+.album-popup__image {
+	width: 100%;
+	max-width: 100%;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+
+/*=====================================================
+	Tracklist in album-popup
+=====================================================*/
+
+.tracklist {
+	width: 100%;
+	
+	tr {
+
+		&:hover td {
+			background: #F9F9F9;
+			cursor: pointer;
+
+			.tracklist__num {
+				display: none;
+			}
+
+			.tracklist__play {
+				display: inline-block;
+			}
+		}
+
+		td {
+			padding: 5px 10px;
+			border-bottom: 1px solid #C0C0C0;
+		}
+	}
+}
+
+.tracklist__play  {
+	display: none;
+}

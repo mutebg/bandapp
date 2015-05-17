@@ -1,0 +1,85 @@
+.page {
+	position: relative;
+}
+
+.page--home {
+	height: calc(100% - 150px);
+}
+
+.page--about {
+	padding-bottom: 15%;
+}
+
+.page--albums,
+.page--events {
+	background: $bg-color;
+}
+
+.page--blog,
+.page--contact {
+	padding-top: 15%;
+	padding-bottom: 15%;
+	background-size: cover;
+	background-position: 50% 0%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.page--blog {
+	background-image: url(../images/blog.jpg);
+	@media #{$retina-break} {
+		background-image: url(../images/blog-2x.jpg);
+	}
+}
+
+.page--contact {
+	background-image: url(../images/contact.jpg);
+	@media #{$retina-break} {
+		background-image: url(../images/contact-2x.jpg);
+	}
+}
+
+.content {
+	@media #{$desktop-break} {
+		margin: 0 72px 0 72px;
+		padding: 60px;
+	}
+
+	@media #{$tablet-break} {
+		margin: 0 32px 0 32px;
+		padding: 30px;
+	}
+
+	@media #{$mobile-break} {
+		margin: 0;
+	}
+
+}
+
+.content--bg {
+	background: #fff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+footer {
+	padding: 2em;
+	background: $bg-color;
+	text-align: center;
+
+	a {
+		width: 48px;
+		height: 48px;
+		display: inline-block;
+		margin: 0 10px;
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 50%;
+		font-size: 28px;
+		transition: all .3s;
+
+		&:hover {
+			background: $active-color;
+			color: #fff;
+		}
+	}
+}

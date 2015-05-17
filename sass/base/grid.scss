@@ -1,0 +1,50 @@
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.item {
+  margin-left: 5%;
+  float: left;
+}
+
+.item:first-child {
+  margin-left: 0;
+}
+
+.item.full {
+  width: 100%;
+}
+
+.item.two-thirds {
+  width: 65%;
+}
+
+.item.half {
+  width: 47.5%;
+}
+
+.item.one-third {
+  width: 30%;
+}
+
+.item.one-fourth {
+  width: 21.25%;
+}
+
+.item.three-fourth {
+  width: 73.75%;
+}
+
+
+@media #{$tablet-break} {
+  .item.two-thirds,
+  .item.half,
+  .item.one-third,
+  .item.one-fourth,
+  .item.three-fourth {
+    width: 100%;
+    margin-left: 0;
+  }
+}
